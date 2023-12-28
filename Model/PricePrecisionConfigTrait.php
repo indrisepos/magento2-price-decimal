@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace SynoptikLabs\PriceDecimal\Model;
 
+use SynoptikLabs\PriceDecimal\Model\ConfigInterface;
+
 trait PricePrecisionConfigTrait
 {
 

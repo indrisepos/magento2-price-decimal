@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace SynoptikLabs\PriceDecimal\Model\Plugin\Local;
 
 use SynoptikLabs\PriceDecimal\Model\Plugin\PriceFormatPluginAbstract;
+use SynoptikLabs\PriceDecimal\Model\ConfigInterface;
 
 class Format extends PriceFormatPluginAbstract
 {
