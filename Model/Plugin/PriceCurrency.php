@@ -4,6 +4,12 @@ declare(strict_types=1);
 
 namespace SynoptikLabs\PriceDecimal\Model\Plugin;
 
+use SynoptikLabs\PriceDecimal\Model\ConfigInterface;
+use Magento\Framework\App\RequestInterface;
+use Magento\Framework\App\State;
+use Magento\Framework\App\Area;
+use Magento\Sales\Model\OrderFactory as OrderFactory;
+
 class PriceCurrency extends PriceFormatPluginAbstract
 {
     /**
