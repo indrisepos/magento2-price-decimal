@@ -24,10 +24,10 @@ The **«Price Decimal Precision»** extension allows you to change or delete the
 - Supports English translation.
 
 ### Installation
-The preferred way of installing lillik/magento2-price-decimal is through Composer. Simply add lillik/magento2-price-decimal as a dependency:
+The preferred way of installing synoptik-labs/magento2-price-decimal is through Composer. Simply add synoptik-labs/magento2-price-decimal as a dependency:
 
 ```bash
-php composer.phar require lillik/magento2-price-decimal
+php composer.phar require synoptik-labs/magento2-price-decimal
 ```
 
 ### Configuration
@@ -37,16 +37,7 @@ Stores -> Configuration -> Catalog
 ```
 
 ### Contribution
-If you have any issues, please [contact me](https://twitter.com/clipro) or open a bug report in GitHub's [issue tracker](https://github.com/lillik/magento2-price-decimal/issues).
+Open a bug report in GitHub's [issue tracker](https://github.com/synoptik-labs/magento2-price-decimal/issues).
 
 ### License
 The code is licensed under [Apache-2.0 License](https://www.apache.org/licenses/LICENSE-2.0).
-
-### TODO 
- - Remove decimals in cart and checkout
- - Remove only zero decimal option ([description](https://github.com/lillik/magento2-price-decimal/issues/35))
-
-### Donation
-If this project help you reduce time to develop, you can give me a cup of coffee :)[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate?hosted_button_id=LKAG7L4HWMVSL)
-
-![img](./qr-donate.png)
