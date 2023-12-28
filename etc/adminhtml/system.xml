@@ -3,7 +3,7 @@
     <system>
         <section id="catalog_price_decimal" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
             <tab>catalog</tab>
-            <resource>Lillik_PriceDecimal::config</resource>
+            <resource>SynoptikLabs_PriceDecimal::config</resource>
             <label>Simple Price Decimal (Precision)</label>
             <group id="general" translate="label" type="text" sortOrder="400" showInDefault="1" showInWebsite="1" showInStore="0">
                 <label>General</label>
@@ -23,7 +23,7 @@
                     <depends>
                         <field id="*/*/enable">1</field>
                     </depends>
-                    <source_model>Lillik\PriceDecimal\Block\System\Config\Form\Field\Precision</source_model>
+                    <source_model>SynoptikLabs\PriceDecimal\Block\System\Config\Form\Field\Precision</source_model>
                 </field>
         </group>
         </section>

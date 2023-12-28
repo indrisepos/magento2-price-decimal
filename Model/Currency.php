@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Lillik\PriceDecimal\Model;
+namespace SynoptikLabs\PriceDecimal\Model;
 
 use Magento\Framework\CurrencyInterface;
 use Magento\Framework\Currency as MagentoCurrency;
-use Lillik\PriceDecimal\Model\ConfigInterface;
+use SynoptikLabs\PriceDecimal\Model\ConfigInterface;
 
 /** @method getPricePrecision */
 class Currency extends MagentoCurrency implements CurrencyInterface
@@ -15,7 +15,7 @@ class Currency extends MagentoCurrency implements CurrencyInterface
     use PricePrecisionConfigTrait;
 
     /**
-     * @var \Lillik\PriceDecimal\Model\ConfigInterface
+     * @var \SynoptikLabs\PriceDecimal\Model\ConfigInterface
      */
     public $moduleConfig;
 
@@ -23,7 +23,7 @@ class Currency extends MagentoCurrency implements CurrencyInterface
      * Currency constructor.
      *
      * @param \Magento\Framework\App\CacheInterface      $appCache
-     * @param \Lillik\PriceDecimal\Model\ConfigInterface $moduleConfig
+     * @param \SynoptikLabs\PriceDecimal\Model\ConfigInterface $moduleConfig
      * @param null                                       $options
      * @param null                                       $locale
      */

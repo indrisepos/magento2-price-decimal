@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Lillik\PriceDecimal\Model\Plugin;
+namespace SynoptikLabs\PriceDecimal\Model\Plugin;
 
-use Lillik\PriceDecimal\Model\ConfigInterface;
-use Lillik\PriceDecimal\Model\PricePrecisionConfigTrait;
+use SynoptikLabs\PriceDecimal\Model\ConfigInterface;
+use SynoptikLabs\PriceDecimal\Model\PricePrecisionConfigTrait;
 
 abstract class PriceFormatPluginAbstract
 {
@@ -16,7 +16,7 @@ abstract class PriceFormatPluginAbstract
     protected $moduleConfig;
 
     /**
-     * @param \Lillik\PriceDecimal\Model\ConfigInterface $moduleConfig
+     * @param \SynoptikLabs\PriceDecimal\Model\ConfigInterface $moduleConfig
      */
     public function __construct(
         ConfigInterface $moduleConfig

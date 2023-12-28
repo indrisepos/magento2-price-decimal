@@ -1,7 +1,7 @@
 var config = {
     map: {
         '*': {
-            'Magento_Catalog/js/price-utils' : 'Lillik_PriceDecimal/js/price-utils'
+            'Magento_Catalog/js/price-utils' : 'SynoptikLabs_PriceDecimal/js/price-utils'
         }
     }
 };

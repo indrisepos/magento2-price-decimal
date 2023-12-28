@@ -4,7 +4,7 @@
         <arguments>
             <argument name="modifiers" xsi:type="array">
                 <item name="pricetab" xsi:type="array">
-                    <item name="class" xsi:type="string">Lillik\PriceDecimal\Ui\DataProvider\Product\Modifier\Price</item>
+                    <item name="class" xsi:type="string">SynoptikLabs\PriceDecimal\Ui\DataProvider\Product\Modifier\Price</item>
                     <item name="sortOrder" xsi:type="number">200</item>
                 </item>
             </argument>

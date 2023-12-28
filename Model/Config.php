@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Lillik\PriceDecimal\Model;
+namespace SynoptikLabs\PriceDecimal\Model;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 

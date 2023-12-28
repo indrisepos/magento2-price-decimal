@@ -6,7 +6,7 @@
                 <resource id="Magento_Backend::stores">
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config">
-                            <resource id="Lillik_PriceDecimal::config" title="Price Decimal Configuration" sortOrder="50" />
+                            <resource id="SynoptikLabs_PriceDecimal::config" title="Price Decimal Configuration" sortOrder="50" />
                         </resource>
                     </resource>
                 </resource>

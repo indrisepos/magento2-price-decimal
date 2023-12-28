@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Lillik\PriceDecimal\Model\Plugin\Local;
+namespace SynoptikLabs\PriceDecimal\Model\Plugin\Local;
 
-use Lillik\PriceDecimal\Model\Plugin\PriceFormatPluginAbstract;
+use SynoptikLabs\PriceDecimal\Model\Plugin\PriceFormatPluginAbstract;
 
 class Format extends PriceFormatPluginAbstract
 {
