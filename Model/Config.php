@@ -23,14 +23,19 @@ class Config implements ConfigInterface
      */
     private $scopeConfig;
 
+    protected $scopeResolver;
+
+
     /**
      * @param ScopeConfigInterface $scopeConfig
      */
     public function __construct(
-        ScopeConfigInterface $scopeConfig
+        ScopeConfigInterface $scopeConfig,
+        \Magento\Framework\App\ScopeResolverInterface $scopeResolver
     ) {
 
         $this->scopeConfig = $scopeConfig;
+        $this->scopeResolver = $scopeResolver;
     }
 
     /**
@@ -76,6 +81,24 @@ class Config implements ConfigInterface
      */
     public function getPricePrecision()
     {
-        return $this->getValueByPath(self::XML_PATH_PRICE_PRECISION, 'website');
+        if (!$this->currencyPrecisions) {
+            $rawValues = $this->getValueByPath(self::XML_PATH_PRICE_PRECISION, 'website');
+            $result = [];
+            $rawValues = explode(',', $rawValues);
+            foreach ($rawValues as $value) {
+                $values = explode(':', $value);
+                if (count($values) == 2) {
+                    $result[trim($values[0])] = trim($values[1]);
+                }
+            }
+            $this->currencyPrecisions = $result;
+        }
+        if (!$currencyCode) {
+            $currencyCode = $this->scopeResolver->getScope()->getCurrentCurrency()->getCurrencyCode();
+        }
+        if (isset($this->currencyPrecisions[$currencyCode])) {
+            return intval($this->currencyPrecisions[$currencyCode]);
+        }
+        return \Magento\Framework\Pricing\PriceCurrencyInterface::DEFAULT_PRECISION;
     }
 }

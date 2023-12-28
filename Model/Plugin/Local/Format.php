@@ -8,6 +8,20 @@ use SynoptikLabs\PriceDecimal\Model\Plugin\PriceFormatPluginAbstract;
 
 class Format extends PriceFormatPluginAbstract
 {
+    protected $scopeResolver;
+
+    /**
+     * @param \SynoptikLabs\PriceDecimal\Model\ConfigInterface $moduleConfig
+     * @param \Magento\Framework\App\ScopeResolverInterface $scopeResolver
+     */
+    public function __construct(
+        ConfigInterface $moduleConfig,
+        \Magento\Framework\App\ScopeResolverInterface $scopeResolver
+    ) {
+        parent::__construct($moduleConfig);
+        $this->scopeResolver = $scopeResolver;
+    }
+
 
     /**
      * {@inheritdoc}
@@ -19,13 +33,21 @@ class Format extends PriceFormatPluginAbstract
      */
     public function afterGetPriceFormat($subject, $result)
     {
-        $precision = $this->getPricePrecision();
+        $currencyCode = null;
+        if (isset($args[1])) {
+            $currencyCode = $args[1];
+        }
+        if (!$currencyCode) {
+            $currencyCode = $this->scopeResolver->getScope()->getCurrentCurrency()->getCurrencyCode();
+        }
 
+        $precision = $this->getPricePrecision($currencyCode);
         if ($this->getConfig()->isEnable()) {
             $result['precision'] = $precision;
             $result['requiredPrecision'] = $precision;
         }
 
         return $result;
+
     }
 }

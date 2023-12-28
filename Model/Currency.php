@@ -22,10 +22,10 @@ class Currency extends MagentoCurrency implements CurrencyInterface
     /**
      * Currency constructor.
      *
-     * @param \Magento\Framework\App\CacheInterface      $appCache
+     * @param \Magento\Framework\App\CacheInterface            $appCache
      * @param \SynoptikLabs\PriceDecimal\Model\ConfigInterface $moduleConfig
-     * @param null                                       $options
-     * @param null                                       $locale
+     * @param null                                             $options
+     * @param null                                             $locale
      */
     public function __construct(
         \Magento\Framework\App\CacheInterface $appCache,
@@ -35,5 +35,10 @@ class Currency extends MagentoCurrency implements CurrencyInterface
     ) {
         $this->moduleConfig = $moduleConfig;
         parent::__construct($appCache, $options, $locale);
+    }
+
+    public function getCurrencyCode()
+    {
+        return $this->_options['currency'];
     }
 }
