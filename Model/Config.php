@@ -27,8 +27,6 @@ class Config implements ConfigInterface
 
     protected $currencyPrecisions;
 
-    protected $currencyCode;
-
     /**
      *
      * @param ScopeConfigInterface $scopeConfig
@@ -88,7 +86,7 @@ class Config implements ConfigInterface
      *
      * @return mixed
      */
-    public function getPricePrecision()
+    public function getPricePrecision($currencyCode = 'USD')
     {
         if (!$this->currencyPrecisions) {
             $rawValues = $this->getValueByPath(self::XML_PATH_PRICE_PRECISION, 'website');
