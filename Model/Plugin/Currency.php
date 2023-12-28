@@ -8,10 +8,10 @@ class Currency extends PriceFormatPluginAbstract
 {
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      *
      * @param \Magento\Framework\CurrencyInterface $subject
-     * @param array                                ...$args
+     * @param array                                ...$arguments
      *
      * @return array
      */

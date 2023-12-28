@@ -37,6 +37,11 @@ class Currency extends MagentoCurrency implements CurrencyInterface
         parent::__construct($appCache, $options, $locale);
     }
 
+    /**
+     * Return currency code
+     *
+     * @return string
+     */
     public function getCurrencyCode()
     {
         return $this->_options['currency'];

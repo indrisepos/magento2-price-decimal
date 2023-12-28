@@ -9,6 +9,9 @@ use SynoptikLabs\PriceDecimal\Model\ConfigInterface;
 
 class Format extends PriceFormatPluginAbstract
 {
+    /**
+     * @var \Magento\Framework\App\ScopeResolverInterface
+     */
     protected $scopeResolver;
 
     /**
@@ -23,12 +26,11 @@ class Format extends PriceFormatPluginAbstract
         $this->scopeResolver = $scopeResolver;
     }
 
-
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      *
-     * @param $subject
-     * @param $result
+     * @param object $subject
+     * @param array  $result
      *
      * @return mixed
      */
@@ -49,6 +51,5 @@ class Format extends PriceFormatPluginAbstract
         }
 
         return $result;
-
     }
 }

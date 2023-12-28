@@ -7,6 +7,7 @@ namespace SynoptikLabs\PriceDecimal\Model\Plugin;
 class OrderPlugin extends PriceFormatPluginAbstract
 {
     /**
+     *
      * @param \Magento\Sales\Model\Order $subject
      * @param array ...$args
      * @return array

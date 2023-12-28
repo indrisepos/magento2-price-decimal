@@ -47,8 +47,8 @@ class PriceCurrency extends PriceFormatPluginAbstract
         $this->orderFactory = $orderFactory;
     }
 
-
     /**
+     *
      * @return bool
      * @throws \Magento\Framework\Exception\LocalizedException
      */
@@ -58,6 +58,7 @@ class PriceCurrency extends PriceFormatPluginAbstract
     }
 
     /**
+     *
      * @return bool
      */
     private function isCreditMemoPage()
@@ -66,9 +67,8 @@ class PriceCurrency extends PriceFormatPluginAbstract
             $this->request->getFullActionName() === 'sales_order_creditmemo_save';
     }
 
-
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function beforeFormat(
         \Magento\Directory\Model\PriceCurrency $subject,
@@ -92,9 +92,10 @@ class PriceCurrency extends PriceFormatPluginAbstract
     }
 
     /**
+     *
      * @param \Magento\Directory\Model\PriceCurrency $subject
      * @param callable $proceed
-     * @param $price
+     * @param float $price
      * @param array ...$args
      * @return float
      */
@@ -119,10 +120,10 @@ class PriceCurrency extends PriceFormatPluginAbstract
         } else {
             return $proceed($price);
         }
-
     }
 
     /**
+     *
      * @param \Magento\Directory\Model\PriceCurrency $subject
      * @param array ...$args
      * @return array
@@ -137,14 +138,14 @@ class PriceCurrency extends PriceFormatPluginAbstract
             $args[3] = isset($args[3])? $args[3] : null;
             $args[4] = isset($args[4])? $args[4] : null;
             $currencyCode = $subject->getCurrency()->getCode($args[3], $args[4]);
-            $args[2] = intval($this->getPricePrecision($currencyCode));
+            $args[2] = (int)$this->getPricePrecision($currencyCode);
         }
 
         return $args;
-
     }
 
     /**
+     *
      * @param \Magento\Directory\Model\PriceCurrency $subject
      * @param array ...$args
      * @return array
@@ -162,6 +163,5 @@ class PriceCurrency extends PriceFormatPluginAbstract
         }
 
         return $args;
-
     }
 }

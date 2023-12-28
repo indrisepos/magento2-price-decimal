@@ -11,6 +11,7 @@ trait PricePrecisionConfigTrait
 
 
     /**
+     *
      * @return \SynoptikLabs\PriceDecimal\Model\ConfigInterface
      */
     public function getConfig()
@@ -19,6 +20,8 @@ trait PricePrecisionConfigTrait
     }
 
     /**
+     *
+     * @param string $currencyCode
      * @return int|mixed
      */
     public function getPricePrecision($currencyCode = 'USD')

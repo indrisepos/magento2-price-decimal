@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace SynoptikLabs\PriceDecimal\Block\System\Config\Form\Field;
 
-
 class Precision implements \Magento\Framework\Option\ArrayInterface
 {
 

@@ -11,8 +11,14 @@ use Magento\Framework\TestFramework\Unit\Helper\ObjectManager;
 class PriceCurrencyTest extends \PHPUnit\Framework\TestCase
 {
 
+    /**
+     * @var function
+     */
     private $closureMock;
 
+    /**
+     * @var null|object|MockObject
+     */
     private $priceCurrencyMock;
 
     protected function setUp()

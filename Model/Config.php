@@ -9,13 +9,13 @@ use Magento\Framework\App\Config\ScopeConfigInterface;
 class Config implements ConfigInterface
 {
 
-    const XML_PATH_PRICE_PRECISION
+    public const XML_PATH_PRICE_PRECISION
         = 'catalog_price_decimal/general/price_precision';
 
-    const XML_PATH_CAN_SHOW_PRICE_DECIMAL
+    public const XML_PATH_CAN_SHOW_PRICE_DECIMAL
         = 'catalog_price_decimal/general/can_show_decimal';
 
-    const XML_PATH_GENERAL_ENABLE
+    public const XML_PATH_GENERAL_ENABLE
         = 'catalog_price_decimal/general/enable';
 
     /**
@@ -25,9 +25,12 @@ class Config implements ConfigInterface
 
     protected $scopeResolver;
 
+    protected $currencyPrecisions;
 
     /**
+     *
      * @param ScopeConfigInterface $scopeConfig
+     * @param \Magento\Framework\App\ScopeResolverInterface $scopeResolver
      */
     public function __construct(
         ScopeConfigInterface $scopeConfig,
@@ -39,6 +42,7 @@ class Config implements ConfigInterface
     }
 
     /**
+     *
      * @return \Magento\Framework\App\Config\ScopeConfigInterface
      */
     public function getScopeConfig()
@@ -48,8 +52,9 @@ class Config implements ConfigInterface
 
     /**
      * Return Config Value by XML Config Path
-     * @param $path
-     * @param $scopeType
+     *
+     * @param string $path
+     * @param string $scopeType
      *
      * @return mixed
      */
@@ -59,6 +64,7 @@ class Config implements ConfigInterface
     }
 
     /**
+     *
      * @return mixed
      */
     public function isEnable()
@@ -67,6 +73,7 @@ class Config implements ConfigInterface
     }
 
     /**
+     *
      * @return mixed
      */
     public function canShowPriceDecimal()
@@ -97,7 +104,7 @@ class Config implements ConfigInterface
             $currencyCode = $this->scopeResolver->getScope()->getCurrentCurrency()->getCurrencyCode();
         }
         if (isset($this->currencyPrecisions[$currencyCode])) {
-            return intval($this->currencyPrecisions[$currencyCode]);
+            return (int)$this->currencyPrecisions[$currencyCode];
         }
         return \Magento\Framework\Pricing\PriceCurrencyInterface::DEFAULT_PRECISION;
     }
