@@ -27,6 +27,8 @@ class Config implements ConfigInterface
 
     protected $currencyPrecisions;
 
+    protected $currencyCode;
+
     /**
      *
      * @param ScopeConfigInterface $scopeConfig
