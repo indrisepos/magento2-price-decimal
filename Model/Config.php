@@ -84,12 +84,14 @@ class Config implements ConfigInterface
     /**
      * Return Price precision from store config
      *
+     * @param string $currencyCode
      * @return mixed
      */
     public function getPricePrecision($currencyCode = 'USD')
     {
         if (!$this->currencyPrecisions) {
             $rawValues = $this->getValueByPath(self::XML_PATH_PRICE_PRECISION, 'website');
+            
             $result = [];
             $rawValues = explode(',', $rawValues);
             foreach ($rawValues as $value) {

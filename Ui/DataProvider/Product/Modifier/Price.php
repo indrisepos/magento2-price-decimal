@@ -46,6 +46,9 @@ class Price extends AbstractModifier
         $this->moduleConfig = $moduleConfig;
     }
 
+    /**
+     * @inheritDoc
+     */
     public function modifyData(array $data)
     {
         if ($this->moduleConfig->isEnable()) {

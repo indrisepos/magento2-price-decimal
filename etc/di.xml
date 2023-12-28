@@ -18,4 +18,8 @@
         <plugin name="synoptiklabs_price_decimal_for_currency" type="SynoptikLabs\PriceDecimal\Model\Plugin\Currency" sortOrder="10" disabled="false"/>
     </type>
 
+    <type name="Magento\Directory\Model\Currency">
+        <plugin name="synoptiklabs_price_decimal_for_directory_currency" type="SynoptikLabs\PriceDecimal\Model\Plugin\CurrencyModel" sortOrder="10" disabled="false"/>
+    </type>
+
 </config>

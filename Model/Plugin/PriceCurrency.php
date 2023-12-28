@@ -72,96 +72,71 @@ class PriceCurrency extends PriceFormatPluginAbstract
      */
     public function beforeFormat(
         \Magento\Directory\Model\PriceCurrency $subject,
-        ...$args
+        $amount,
+        $includeContainer = true,
+        $precision = \Magento\Directory\Model\PriceCurrency::DEFAULT_PRECISION,
+        $scope = null,
+        $currency = null
     ) {
         if ($this->getConfig()->isEnable()) {
-            // add the optional arg
-            if (!isset($args[1])) {
-                $args[1] = true;
-            }
-            // Precision argument
-            // Precision argument
-            $args[3] = isset($args[3])? $args[3] : null;
-            $args[4] = isset($args[4])? $args[4] : null;
-            $currencyCode = $subject->getCurrency()->getCode($args[3], $args[4]);
-            $args[2] = $this->getPricePrecision($currencyCode);
-
+            $precision = $this->getPricePrecision($currency);
         }
 
-        return $args;
+        return [$amount, $includeContainer, $precision, $scope, $currency];
     }
 
     /**
+     * Undocumented function
      *
      * @param \Magento\Directory\Model\PriceCurrency $subject
-     * @param callable $proceed
-     * @param float $price
-     * @param array ...$args
-     * @return float
-     */
-    public function aroundRound(
-        \Magento\Directory\Model\PriceCurrency $subject,
-        callable $proceed,
-        $price,
-        ...$args
-    ) {
-        if ($this->getConfig()->isEnable()) {
-            $currencyCode = $subject->getCurrency()->getCode();
-            if ($this->checkArea() && ($this->isCreditMemoPage())) {
-                $orderId = $this->request->getParam('order_id');
-                if ($orderId) {
-                    $order = $this->orderFactory->create()->load($orderId);
-                    if ($order->getId()) {
-                        $currencyCode = $order->getBaseCurrencyCode();
-                    }
-                }
-            }
-            return round($price, $this->getPricePrecision($currencyCode));
-        } else {
-            return $proceed($price);
-        }
-    }
-
-    /**
-     *
-     * @param \Magento\Directory\Model\PriceCurrency $subject
-     * @param array ...$args
+     * @param float   $amount
+     * @param boolean $includeContainer
+     * @param int     $precision
+     * @param int     $scope
+     * @param  string $currency
      * @return array
      */
     public function beforeConvertAndFormat(
         \Magento\Directory\Model\PriceCurrency $subject,
-        ...$args
+        $amount,
+        $includeContainer = true,
+        $precision = \Magento\Directory\Model\PriceCurrency::DEFAULT_PRECISION,
+        $scope = null,
+        $currency = null
     ) {
         if ($this->getConfig()->isEnable()) {
-            // add the optional args
-            $args[1] = isset($args[1])? $args[1] : null;
-            $args[3] = isset($args[3])? $args[3] : null;
-            $args[4] = isset($args[4])? $args[4] : null;
-            $currencyCode = $subject->getCurrency()->getCode($args[3], $args[4]);
-            $args[2] = (int)$this->getPricePrecision($currencyCode);
+            $currencyCode = $subject->getCurrency()->getCode($scope, $currency);
+            $precision = (int)$this->getPricePrecision($currency);
         }
 
-        return $args;
+        return [$amount, $includeContainer, $precision, $scope, $currency];
     }
 
     /**
+     * Undocumented function
      *
      * @param \Magento\Directory\Model\PriceCurrency $subject
-     * @param array ...$args
+     * @param float  $amount
+     * @param int    $scope
+     * @param string $currency
+     * @param int    $precision
      * @return array
      */
     public function beforeConvertAndRound(
         \Magento\Directory\Model\PriceCurrency $subject,
-        ...$args
+        $amount,
+        $scope = null,
+        $currency = null,
+        $precision = \Magento\Directory\Model\PriceCurrency::DEFAULT_PRECISION
     ) {
         if ($this->getConfig()->isEnable()) {
             //add optional args
-            $args[1] = isset($args[1])? $args[1] : null;
-            $args[2] = isset($args[2])? $args[2] : null;
-            $currencyCode = $subject->getCurrency()->getCode($args[1], $args[2]);
-            $args[3] = $this->getPricePrecision($currencyCode);
+            // $args[1] = isset($args[1])? $args[1] : null;
+            // $args[2] = isset($args[2])? $args[2] : null;
+            // $currencyCode = $subject->getCurrency()->getCode($args[1], $args[2]);
+            $precision = $this->getPricePrecision($currency);
         }
 
-        return $args;
+        return [$amount, $scope, $currency, $precision];
     }
 }
