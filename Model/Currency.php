@@ -39,6 +39,7 @@ class Currency extends MagentoCurrency implements CurrencyInterface
         $locale = null
     ) {
         $this->moduleConfig = $moduleConfig;
+        $this->_options = $options;
         parent::__construct($appCache, $options, $locale);
     }
 
@@ -49,6 +50,9 @@ class Currency extends MagentoCurrency implements CurrencyInterface
      */
     public function getCurrencyCode()
     {
-        return $this->_options['currency'];
+        if(is_array($this->_options))
+            return $this->_options['currency'];
+        else
+            return "";
     }
 }
