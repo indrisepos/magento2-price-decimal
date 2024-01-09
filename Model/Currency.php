@@ -20,6 +20,11 @@ class Currency extends MagentoCurrency implements CurrencyInterface
     public $moduleConfig;
 
     /**
+     * @var array
+     */
+    public $_options;
+
+    /**
      * Currency constructor.
      *
      * @param \Magento\Framework\App\CacheInterface            $appCache
