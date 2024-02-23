@@ -27,7 +27,7 @@ trait PricePrecisionConfigTrait
     public function getPricePrecision($currencyCode = 'USD')
     {
         if ($this->getConfig()->canShowPriceDecimal()) {
-            return $this->getConfig()->getPricePrecision($currencyCode);
+	    return (int)$this->getConfig()->getPricePrecision();
         }
 
         return 0;
