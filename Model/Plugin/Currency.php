@@ -20,7 +20,7 @@ class Currency extends PriceFormatPluginAbstract
         ...$arguments
     ) {
         if ($this->getConfig()->isEnable()) {
-            $arguments[1]['precision'] = $subject->getPricePrecision($subject->getCurrencyCode());
+	    $arguments[1]['precision'] = (int) $subject->getPricePrecision($subject->getCurrencyCode());
         }
         return $arguments;
     }

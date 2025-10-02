@@ -29,8 +29,8 @@ class Currency extends MagentoCurrency implements CurrencyInterface
      *
      * @param \Magento\Framework\App\CacheInterface            $appCache
      * @param \SynoptikLabs\PriceDecimal\Model\ConfigInterface $moduleConfig
-     * @param null                                             $options
-     * @param null                                             $locale
+     * @param array|string|null                                $options
+     * @param string|null                                      $locale
      */
     public function __construct(
         \Magento\Framework\App\CacheInterface $appCache,

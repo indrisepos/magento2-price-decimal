@@ -1,4 +1,13 @@
-_Original work from: [lillik](https://github.com/lillik/magento2-price-decimal)._
+### Credits
+
+This repository is based on [Synoptik-Labs/magento2-price-decimal](https://github.com/Synoptik-Labs/magento2-price-decimal), with additional improvements merged from multiple community forks.
+
+**Original work:** [lillik/magento2-price-decimal](https://github.com/lillik/magento2-price-decimal)
+
+**Additional contributions from:**
+- [i2btech](https://github.com/i2btech/magento2-price-decimal) - PHP 8.4 compatibility
+- [pfortin-expertime](https://github.com/pfortin-expertime/magento2-price-decimal) - Additional fixes
+- [fritzmg](https://github.com/fritzmg/magento2-price-decimal) - PHP 8.3 compatibility
 
 ### Introduction
 
