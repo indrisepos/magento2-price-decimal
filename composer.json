@@ -1,5 +1,6 @@
 {
-    "name": "synoptik-labs/magento2-price-decimal",
+    "name": "indrisepos/magento2-price-decimal",
+    "version": "1.1.0",
     "description": "Magento 2 Price Decimal Precision",
     "keywords": [
         "magento2"

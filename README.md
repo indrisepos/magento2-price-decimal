@@ -36,7 +36,7 @@ The **«Price Decimal Precision»** extension allows you to change or delete the
 The preferred way of installing synoptik-labs/magento2-price-decimal is through Composer. Simply add synoptik-labs/magento2-price-decimal as a dependency:
 
 ```bash
-php composer.phar require synoptik-labs/magento2-price-decimal
+composer require indrisepos/magento2-price-decimal
 ```
 
 ### Configuration
